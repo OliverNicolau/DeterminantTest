@@ -1,5 +1,7 @@
 ## macOS
 .DS_Store
+##VScode
+*.code-workspace
 ## Lake
 .lake/*
 .cache/*
