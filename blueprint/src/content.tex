@@ -6,23 +6,23 @@
 % the current file can be a simple sequence of \input. Otherwise It
 % can start with a \section or \chapter for instance.
 
-\section{Determinant Tests in Euclidean Geometry}
+\chapter{Determinant Tests in Euclidean Geometry}
 
 In this chapter, we formalize the algebraic conditions for points in the Euclidean plane $\mathbb{R}^2$ to be in general position. This involves checking for collinear triples and concyclic quadruples using matrix determinants.
 
-\subsection{General Position}
+\section{General Position}
 
 \begin{definition}[General Position]
   \label{def:general_position}
-  \lean{DeterminantTest.GeneralPosition}
+  \lean{FormalButterfly.GeneralPosition}
   A finite set of points $S \subset \mathbb{R}^2$ is in \emph{general position} if it contains no collinear triples and no concyclic quadruples.
 \end{definition}
 
-\subsection{Collinearity and Determinants}
+\section{Collinearity and Determinants}
 
 \begin{definition}[Collinear Determinant]
   \label{def:collinear_det}
-  \lean{DeterminantTest.collinearDet}
+  \lean{FormalButterfly.collinearDet}
   For three points $p, q, r \in \mathbb{R}^2$, their collinear determinant is defined as the determinant of the following $3 \times 3$ matrix:
   $$
   \begin{vmatrix}
@@ -36,7 +36,7 @@ In this chapter, we formalize the algebraic conditions for points in the Euclide
 \begin{lemma}[Collinear iff Determinant Zero]
   \label{lem:collinear_iff_det_zero}
   \uses{def:collinear_det}
-  \lean{DeterminantTest.collinear_iff_det_zero}
+  \lean{FormalButterfly.collinear_iff_det_zero}
   Three points $p, q, r \in \mathbb{R}^2$ are collinear if and only if their collinear determinant is zero.
 \end{lemma}
 
@@ -45,11 +45,16 @@ In this chapter, we formalize the algebraic conditions for points in the Euclide
   The proof proceeds by expanding the determinant and demonstrating that it vanishes exactly when the vectors from a chosen base point are linearly dependent. We handle the trivial collinearities (where points coincide) and the general case where a non-zero scaling factor defines the relationship between the vectors.
 \end{proof}
 
-\subsection{Concyclicity and Determinants}
+\begin{remark}[Zulip Discussion and Future Generalizations]
+  The current formalization and proof approach were discussed in a 
+  \href{https://leanprover.zulipchat.com/#narrow/channel/113489-new-members/topic/Easy.20lemma.20on.20collinear.20points.20and.20determinants/with/571330618}{Zulip thread}.
+\end{remark}
+
+\section{Concyclicity and Determinants}
 
 \begin{definition}[Cocyclic Determinant]
   \label{def:cocyclic_det}
-  \lean{DeterminantTest.cocyclicDet}
+  \lean{FormalButterfly.cocyclicDet}
   For four points $p, q, r, s \in \mathbb{R}^2$, their cocyclic determinant is defined as the determinant of the following $4 \times 4$ matrix, where $\| \cdot \|^2$ denotes the squared Euclidean norm:
   $$
   \begin{vmatrix}
@@ -64,7 +69,7 @@ In this chapter, we formalize the algebraic conditions for points in the Euclide
 \begin{lemma}[Concyclic iff Determinant Zero]
   \label{lem:cocyclic_iff_det_zero}
   \uses{def:cocyclic_det, lem:collinear_iff_det_zero}
-  \lean{DeterminantTest.cocyclic_iff_det_zero}
+  \lean{FormalButterfly.cocyclic_iff_det_zero}
   Assume that $p, q, r \in \mathbb{R}^2$ are not collinear. Then the set $\{p, q, r, s\}$ is concyclic if and only if their cocyclic determinant is zero.
 \end{lemma}
 
