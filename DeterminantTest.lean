@@ -1,1 +1,1 @@
-import DeterminantTest.Example
+import DeterminantTest.Basic
