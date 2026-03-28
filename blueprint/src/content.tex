@@ -5,3 +5,69 @@
 % If you want to split the blueprint content into several files then
 % the current file can be a simple sequence of \input. Otherwise It
 % can start with a \section or \chapter for instance.
+
+\section{Determinant Tests in Euclidean Geometry}
+
+In this chapter, we formalize the algebraic conditions for points in the Euclidean plane $\mathbb{R}^2$ to be in general position. This involves checking for collinear triples and concyclic quadruples using matrix determinants.
+
+\subsection{General Position}
+
+\begin{definition}[General Position]
+  \label{def:general_position}
+  \lean{DeterminantTest.GeneralPosition}
+  A finite set of points $S \subset \mathbb{R}^2$ is in \emph{general position} if it contains no collinear triples and no concyclic quadruples.
+\end{definition}
+
+\subsection{Collinearity and Determinants}
+
+\begin{definition}[Collinear Determinant]
+  \label{def:collinear_det}
+  \lean{DeterminantTest.collinearDet}
+  For three points $p, q, r \in \mathbb{R}^2$, their collinear determinant is defined as the determinant of the following $3 \times 3$ matrix:
+  $$
+  \begin{vmatrix}
+    p_0 & p_1 & 1 \\
+    q_0 & q_1 & 1 \\
+    r_0 & r_1 & 1
+  \end{vmatrix}
+  $$
+\end{definition}
+
+\begin{lemma}[Collinear iff Determinant Zero]
+  \label{lem:collinear_iff_det_zero}
+  \uses{def:collinear_det}
+  \lean{DeterminantTest.collinear_iff_det_zero}
+  Three points $p, q, r \in \mathbb{R}^2$ are collinear if and only if their collinear determinant is zero.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  The proof proceeds by expanding the determinant and demonstrating that it vanishes exactly when the vectors from a chosen base point are linearly dependent. We handle the trivial collinearities (where points coincide) and the general case where a non-zero scaling factor defines the relationship between the vectors.
+\end{proof}
+
+\subsection{Concyclicity and Determinants}
+
+\begin{definition}[Cocyclic Determinant]
+  \label{def:cocyclic_det}
+  \lean{DeterminantTest.cocyclicDet}
+  For four points $p, q, r, s \in \mathbb{R}^2$, their cocyclic determinant is defined as the determinant of the following $4 \times 4$ matrix, where $\| \cdot \|^2$ denotes the squared Euclidean norm:
+  $$
+  \begin{vmatrix}
+    p_0 & p_1 & \|p\|^2 & 1 \\
+    q_0 & q_1 & \|q\|^2 & 1 \\
+    r_0 & r_1 & \|r\|^2 & 1 \\
+    s_0 & s_1 & \|s\|^2 & 1
+  \end{vmatrix}
+  $$
+\end{definition}
+
+\begin{lemma}[Concyclic iff Determinant Zero]
+  \label{lem:cocyclic_iff_det_zero}
+  \uses{def:cocyclic_det, lem:collinear_iff_det_zero}
+  \lean{DeterminantTest.cocyclic_iff_det_zero}
+  Assume that $p, q, r \in \mathbb{R}^2$ are not collinear. Then the set $\{p, q, r, s\}$ is concyclic if and only if their cocyclic determinant is zero.
+\end{lemma}
+
+\begin{proof}
+  This lemma is yet to be formalized. The geometric intuition relies on representing the generic equation of a circle $A(x^2 + y^2) + Bx + Cy + D = 0$ as a linear system, where the determinant vanishing implies the four points share a common solution vector $(B, C, A, D)$.
+\end{proof}
