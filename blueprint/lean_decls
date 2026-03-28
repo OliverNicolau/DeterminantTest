@@ -1,0 +1,5 @@
+DeterminantTest.GeneralPosition
+DeterminantTest.collinearDet
+DeterminantTest.collinear_iff_det_zero
+DeterminantTest.cocyclicDet
+DeterminantTest.cocyclic_iff_det_zero

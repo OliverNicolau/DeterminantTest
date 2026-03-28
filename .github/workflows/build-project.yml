@@ -43,8 +43,8 @@ jobs:
       - name: Install and configure Lean, and get mathlib cache
         uses: leanprover/lean-action@c544e89643240c6b398f14a431bcdc6309e36b3e # v1.4.0
         with:
-          auto-config: false
-          use-github-cache: false
+          auto-config: true
+          use-github-cache: true
           use-mathlib-cache: true
 
       - name: "Check that DeterminantTest.lean is up to date"
