@@ -107,5 +107,3 @@ lemma cocyclic_iff_det_zero (p q r s : Point) (not_collinear : ¬ Collinear ℝ 
   sorry
 
 end DeterminantTest
-
-#lint
