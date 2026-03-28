@@ -21,6 +21,7 @@ git = "https://github.com/leanprover-community/mathlib4.git"
 
 [[lean_lib]]
 name = "DeterminantTest"
+lint_driver = "Mathlib.Linter.All"
 
 [[lint]]
 name = "checkdecls"
